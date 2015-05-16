@@ -2,18 +2,22 @@
 Browserify with sourcemaps
 
 1.  Install Browserify 
-    $ npm install -g browserify
+    
+        $ npm install -g browserify
 
 2.  Create your package.json file
-    $ npm init
+    
+        $ npm init
 
 3.  Install both jQuery and Lo-Dash from npm
-    $ npm install jquery lodash --save
+    
+        $ npm install jquery lodash --save
 
 4.  js/modules/app.js
 
 5.  no minification
-    $ browserify src/njs/main.js -o src/js/main.js
+    
+        $ browserify src/njs/main.js -o src/js/main.js
 
 6.  minification and source maps
 

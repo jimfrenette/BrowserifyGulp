@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var _ = require('lodash');
-var setElementHtml = require('./elementData');
+var setElementHtml = require('./element');
 module.exports = function() {
 
     var module = {

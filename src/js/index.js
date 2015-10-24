@@ -1,5 +1,5 @@
-var setElementHtml = require('./modules/elementData');
-var getServiceData = require('./modules/serviceData.js');
+var setElementHtml = require('./modules/element');
+var getServiceData = require('./modules/service');
 
 setElementHtml('#some-id', 'Step 2...');
 

@@ -1,6 +1,7 @@
 'use strict';
 
 var browserify = require('browserify');
+var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -24,4 +25,16 @@ gulp.task('javascript', function () {
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./js/'));
+});
+
+// Static server
+gulp.task('server', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    gulp.watch('./js/*.js').on('change', browserSync.reload);
+
 });

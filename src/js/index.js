@@ -1,4 +1,6 @@
-var $ = require('jquery');
-var _ = require('lodash');
+var setElementHtml = require('./modules/elementData');
+var getServiceData = require('./modules/serviceData.js');
 
-var app = require('./modules/app.js');
+setElementHtml('#some-id', 'Step 2...');
+
+getServiceData();

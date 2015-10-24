@@ -40,3 +40,10 @@ Browserify with sourcemaps
         $ npm install gulp-util --save
 
         $ gulp javascript
+
+7.  BrowserSync Static Server
+        
+        $ npm install browser-sync --save-dev
+
+        with gulp:
+        http://www.browsersync.io/docs/gulp/

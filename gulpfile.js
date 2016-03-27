@@ -1,16 +1,16 @@
 'use strict';
 
-var browserify = require('browserify');
-var browserSync = require('browser-sync').create();
-var gulp = require('gulp');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
+var gulp        = require('gulp'),
+    browserify  = require('browserify'),
+    buffer      = require('vinyl-buffer'),
+    gutil       = require('gulp-util'),
+    source      = require('vinyl-source-stream'),
+    sourcemaps  = require('gulp-sourcemaps'),
+    uglify      = require('gulp-uglify'),
+    webserver   = require('gulp-webserver');
 
-gulp.task('javascript', function () {
-  // set up the browserify instance on a task basis
+
+gulp.task('js', function () {
   var b = browserify({
     entries: './src/js/index.js',
     debug: true
@@ -20,21 +20,20 @@ gulp.task('javascript', function () {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-        // Add transformation tasks to the pipeline here.
         .pipe(uglify())
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./js/'));
 });
 
-// Static server
+// static web server w/ livereload
 gulp.task('server', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
-
-    gulp.watch('./js/*.js').on('change', browserSync.reload);
-
+    gulp.src('./')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: false,
+            open: true
+        }));
 });
+
+gulp.task('default', ['server']);

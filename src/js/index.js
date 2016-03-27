@@ -1,6 +1,3 @@
-var setElementHtml = require('./modules/element');
-var getServiceData = require('./modules/service');
+var $ = require('jQuery');
 
-setElementHtml('#some-id', 'Step 2...');
-
-getServiceData();
+$('.version').html($.fn.jquery);

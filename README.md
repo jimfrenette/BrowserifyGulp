@@ -1,49 +1,22 @@
-# BrowserifyGulp
-Browserify with sourcemaps
+# BrowserifyGulp Shim jQuery
+Browserify Shim to use external/global jQuery loaded from CDN
 
-1.  Install Browserify 
-    
-        $ npm install -g browserify
+1.  Install Browserify
 
-2.  Create your package.json file
-    
-        $ npm init
+    $ npm install -g browserify
 
-3.  Install both jQuery and Lo-Dash from npm
-    
-        $ npm install jquery lodash --save
+    Remove older global browserify first if upgrading:
 
-4.  js/modules/app.js
+    $ npm rm -global browserify
 
-5.  no minification
-    
-        $ browserify src/njs/main.js -o src/js/main.js
+2.  Install node modules
 
-6.  minification and source maps
+    $ npm install
 
-    A.  $ npm install uglifyify
+3.  Gulp Web Server
 
-        w/o source maps
-        $ browserify -g uglifyify src/js/index.js > js/app.js
+    $ gulp
 
-        --debug flag generates inline source maps
-        $ browserify -g uglifyify --debug src/js/index.js > js/app-debug.js
+4.  New console
 
-    B.  Browserify + Uglify2 with sourcemaps (Gulp Recipe)
-
-        $ npm install gulp --save
-        $ npm install browserify --save
-        $ npm install vinyl-source-stream --save
-        $ npm install vinyl-buffer --save
-        $ npm install gulp-uglify --save
-        $ npm install gulp-sourcemaps --save
-        $ npm install gulp-util --save
-
-        $ gulp javascript
-
-7.  BrowserSync Static Server
-        
-        $ npm install browser-sync --save-dev
-
-        with gulp:
-        http://www.browsersync.io/docs/gulp/
+    $gulp js

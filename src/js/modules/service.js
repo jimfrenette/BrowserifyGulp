@@ -10,7 +10,7 @@ module.exports = function() {
             var tmplSource = $('#tmpl-artist').html(),
                 template;
 
-            $.getJSON('http://responsiveresourcesgroup.com/chinook/api/artists').done(function(data) {
+            $.getJSON('http://jimfrenette.com/chinook/api/artists').done(function(data) {
                 if (data) {
 
                     template = _.template(tmplSource)({
